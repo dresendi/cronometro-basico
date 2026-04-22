@@ -1,0 +1,9 @@
+Si quieres usar un sonido personalizado, coloca aqui un archivo llamado:
+
+alert.mp3
+
+Ruta esperada:
+
+www/assets/alert.mp3
+
+Mientras no exista ese archivo, la app generara un beep sintetico automaticamente.

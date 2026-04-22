@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Cronometro Basico</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="panel">
+        <h1>Cronometro</h1>
+        <p class="subtitle">Analogico de 15 minutos</p>
+
+        <div class="clock-wrap">
+          <div class="clock" id="clock">
+            <div class="clock-face">
+              <div class="minute-track" id="minuteTrack"></div>
+              <div class="ticks" id="ticks"></div>
+              <div class="hand hand-minute" id="minuteHand"></div>
+              <div class="center-dot"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="readouts">
+          <div>
+            <span class="label">Cronometro</span>
+            <strong id="stopwatchValue">00:00</strong>
+          </div>
+          <div>
+            <span class="label">Timer</span>
+            <strong id="timerValue">00:00</strong>
+          </div>
+        </div>
+
+        <label class="timer-input-group" for="minutesInput">
+          <span>Minutos para timer (1 a 15)</span>
+          <input
+            id="minutesInput"
+            type="text"
+            inputmode="numeric"
+            autocomplete="off"
+            maxlength="2"
+            placeholder="Ej. 5"
+          />
+        </label>
+
+        <label class="mode-toggle" for="timerModeToggle">
+          <span class="mode-copy">
+            <strong>Modo de pastel</strong>
+            <small id="timerModeLabel">Crecer con manecilla</small>
+          </span>
+          <span class="switch">
+            <input id="timerModeToggle" type="checkbox" />
+            <span class="slider"></span>
+          </span>
+        </label>
+
+        <div class="actions">
+          <button id="toggleButton" class="btn btn-primary">Iniciar</button>
+          <button id="timerButton" class="btn btn-danger">Iniciar Timer</button>
+          <button id="resetButton" class="btn btn-secondary">Limpiar</button>
+        </div>
+
+        <p id="statusMessage" class="status">Listo para iniciar.</p>
+      </section>
+    </main>
+
+    <audio id="alertAudio" preload="auto">
+      <source src="./assets/alert.mp3" type="audio/mpeg" />
+    </audio>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

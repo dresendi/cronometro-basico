@@ -1,0 +1,17 @@
+{
+  "name": "cronometro-basico",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Cronometro analogico de 15 minutos con Capacitor para Android.",
+  "scripts": {
+    "start": "npx cap open android",
+    "android": "npx cap run android",
+    "copy": "npx cap copy",
+    "sync": "npx cap sync"
+  },
+  "dependencies": {
+    "@capacitor/android": "^7.0.0",
+    "@capacitor/cli": "^7.0.0",
+    "@capacitor/core": "^7.0.0"
+  }
+}
