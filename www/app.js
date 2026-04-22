@@ -15,6 +15,7 @@
   const minuteTrack = document.getElementById("minuteTrack");
   const ticks = document.getElementById("ticks");
   const alertAudio = document.getElementById("alertAudio");
+  const tickAudio = document.getElementById("tickAudio");
 
   let stopwatchSeconds = 0;
   let timerSeconds = 0;
@@ -85,6 +86,22 @@
     timerModeLabel.textContent = eraseMode
       ? "Lleno y se va borrando"
       : "Crecer con manecilla";
+  }
+
+  async function playTicking() {
+    try {
+      if (tickAudio.paused) {
+        tickAudio.currentTime = 0;
+        await tickAudio.play();
+      }
+    } catch (error) {
+      console.warn("No fue posible reproducir el tic-tac.", error);
+    }
+  }
+
+  function stopTicking() {
+    tickAudio.pause();
+    tickAudio.currentTime = 0;
   }
 
   function updateTimerFill() {
@@ -228,6 +245,7 @@
     running = false;
     clearInterval(intervalId);
     intervalId = null;
+    stopTicking();
     render();
     setStatus("El timer termino.", true);
     playAlert();
@@ -248,6 +266,7 @@
       running = false;
       clearInterval(intervalId);
       intervalId = null;
+      stopTicking();
       setStatus("Se alcanzo el maximo de 15 minutos.", true);
     }
 
@@ -259,6 +278,7 @@
       return;
     }
     intervalId = window.setInterval(tick, 1000);
+    playTicking();
   }
 
   function toggleStopwatch() {
@@ -270,6 +290,7 @@
     } else {
       clearInterval(intervalId);
       intervalId = null;
+      stopTicking();
       setStatus("Cronometro detenido.", false);
     }
 
@@ -306,6 +327,7 @@
     timerTargetSeconds = 0;
     clearInterval(intervalId);
     intervalId = null;
+    stopTicking();
     render();
     setStatus("Cronometro reiniciado.", false);
   }
