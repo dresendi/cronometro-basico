@@ -1,7 +1,7 @@
-<?xml version='1.0' encoding='utf-8'?>
+﻿<?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">Cronometro Basico</string>
-    <string name="title_activity_main">Cronometro Basico</string>
+    <string name="app_name">Cron&#243;metro</string>
+    <string name="title_activity_main">Cron&#243;metro</string>
     <string name="package_name">com.cronometro.basico</string>
     <string name="custom_url_scheme">com.cronometro.basico</string>
 </resources>
